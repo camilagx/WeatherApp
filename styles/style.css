@@ -2,7 +2,7 @@ html *{
   color: rgb(122, 122, 122);
 }
 main{
-  border: 1px solid black;
+  border: 1px solid rgb(122, 122, 122);
   border-radius: 5px;
   max-width: 50vw;
   padding: 2%;
