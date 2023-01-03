@@ -10,9 +10,11 @@ main{
 }
 h1{
   margin-bottom: 0;
+  font-size: 1.7rem;
 }
 
 form + section{
+  margin-top: 3%;
   margin-bottom: 3%;
   margin-top: 3%;
   line-height: 1;
@@ -22,7 +24,6 @@ form + section{
 }
 
 .current-degree{
-  font-weight:bold;
   color: black;
   font-size: 3.5rem;
   line-height: 1;

@@ -14,3 +14,4 @@ let minutes = now.getMinutes();
 
 dayTimeSpan.innerHTML = `${day} ${hour}:${minutes}`;
 
+
