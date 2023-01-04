@@ -1,18 +1,27 @@
-//Adding the current day and time to the weather app 
+//Feature 1: Get current day, format, and display dynamically
+let now = new Date();
 let dayTimeSpan = document.querySelector('#dayTime');
+dayTimeSpan.innerHTML = formatDate(now);
+
+function formatDate(now){
+  let day = getDayName(now.getDay());
+  let hour = parseTimeToString(now.getHours());
+  let minutes = parseTimeToString(now.getMinutes());
+
+  return `${day} ${hour}:${minutes}`;
+}
 
 function getDayName(num){
-  let days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  let days = ['Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'];
 
   return days[num];
 }
-
-let now = new Date();
-let day = getDayName(now.getDay());
-let hour = parseTimeToString(now.getHours());
-let minutes = parseTimeToString(now.getMinutes());
-
-dayTimeSpan.innerHTML = `${day} ${hour}:${minutes}`;
 
 /*Checks if time is between 0-9, then add '0' to the minutes or hours*/
 function parseTimeToString(time){
@@ -21,32 +30,24 @@ function parseTimeToString(time){
   }
   return time;
 }
-// Updates heading to the city inputted by user 
-document.querySelector('#cityBtnSearch').addEventListener('click', getCity);
 
-/*Updates heading to the city inputted by user */
+//Feature 2: Updates heading to the city inputted by user 
 document.querySelector('#cityBtnSearch').addEventListener('click', getCity);
 
 function getCity(){
   let inputCity = document.querySelector('#citySearchBox').value;
   let h1City = document.querySelector('#city');
-
   h1City.innerHTML = inputCity;
 }
 
 function getCity(){
   let inputCity = document.querySelector('#citySearchBox').value;
   let h1City = document.querySelector('#city');
-
   h1City.innerHTML = inputCity;
 }
 
-// Alternate between celcius to fahrenheit 
+// Feature 3: Alternate between celcius to fahrenheit 
 let currentCityTemp = document.querySelector('#cityTemp').innerHTML;
-
-function getFahrFromCelcius(celcius){
-  return Math.round((celcius * 9/5) + 32);
-}
 
 //Display temperature in fahrenheit
 document.querySelector('#fahrTemp').addEventListener('click',function(){
@@ -55,11 +56,13 @@ document.querySelector('#fahrTemp').addEventListener('click',function(){
   console.log('in displayFahrenheit');
 });
 
-//Display temp in celcius
+//Display temperature in celcius
 document.querySelector('#celciusTemp').addEventListener('click',function(){
   let cityTempSpan = document.querySelector('#cityTemp');
   cityTempSpan.innerHTML = currentCityTemp;
 });
-/*
-document.querySelector('#celciusTemp').addEventListener('click',displayCelcius());
-*/
+
+//Conversion from celcius to fahrenheit
+function getFahrFromCelcius(celcius){
+  return Math.round((celcius * 9/5) + 32);
+}
