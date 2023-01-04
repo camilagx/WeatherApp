@@ -9,12 +9,18 @@ function getDayName(num){
 
 let now = new Date();
 let day = getDayName(now.getDay());
-let hour = now.getHours();
-let minutes = now.getMinutes();
+let hour = parseTimeToString(now.getHours());
+let minutes = parseTimeToString(now.getMinutes());
 
 dayTimeSpan.innerHTML = `${day} ${hour}:${minutes}`;
 
-
+/*Checks if time is between 0-9, then add '0' to the minutes or hours*/
+function parseTimeToString(time){
+  if(time < 10){
+    return `0${time}`;
+  }
+  return time;
+}
 // Updates heading to the city inputted by user 
 document.querySelector('#cityBtnSearch').addEventListener('click', getCity);
 
