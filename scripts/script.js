@@ -42,30 +42,24 @@ function getCity(){
 }
 
 // Alternate between celcius to fahrenheit 
-let celcius = 17;
+let currentCityTemp = document.querySelector('#cityTemp').innerHTML;
 
 function getFahrFromCelcius(celcius){
-  return (celcius * 9/5) + 32;
+  return Math.round((celcius * 9/5) + 32);
 }
 
 //Display temperature in fahrenheit
-document.querySelector('#fahrTemp').addEventListener('onclick',displayFahrenheit());
-
-function displayFahrenheit(){
+document.querySelector('#fahrTemp').addEventListener('click',function(){
   let cityTempSpan = document.querySelector('#cityTemp');
-  cityTempSpan.innerHTML = getFahrFromCelcius(celcius);
-}
+  cityTempSpan.innerHTML = getFahrFromCelcius(currentCityTemp);
+  console.log('in displayFahrenheit');
+});
 
-//Display temperature in celcius
-document.querySelector('#celciusTemp').addEventListener('onclick',displayCelcius());
-
-function displayCelcius(){
+//Display temp in celcius
+document.querySelector('#celciusTemp').addEventListener('click',function(){
   let cityTempSpan = document.querySelector('#cityTemp');
-  cityTempSpan.innerHTML = celcius;
-
-}
-
-
+  cityTempSpan.innerHTML = currentCityTemp;
+});
 /*
 document.querySelector('#celciusTemp').addEventListener('click',displayCelcius());
 */
