@@ -14,8 +14,19 @@ let minutes = now.getMinutes();
 
 dayTimeSpan.innerHTML = `${day} ${hour}:${minutes}`;
 
+
 // Updates heading to the city inputted by user 
 document.querySelector('#cityBtnSearch').addEventListener('click', getCity);
+
+/*Updates heading to the city inputted by user */
+document.querySelector('#cityBtnSearch').addEventListener('click', getCity);
+
+function getCity(){
+  let inputCity = document.querySelector('#citySearchBox').value;
+  let h1City = document.querySelector('#city');
+
+  h1City.innerHTML = inputCity;
+}
 
 function getCity(){
   let inputCity = document.querySelector('#citySearchBox').value;
