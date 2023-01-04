@@ -23,7 +23,7 @@ form + section{
   max-width: 50px;
 }
 
-.current-degree{
+#cityTemp{
   color: black;
   font-size: 3.5rem;
   line-height: 1;
